@@ -11,3 +11,7 @@ export const getLocation = async function getLocationFromAPI(location) {
     }
 };
 
+const jsonDataProcessing = async function jsonDataProcessingToObj(locationJson) {
+    console.log(locationJson, locationJson.address);
+    // console.log(locationObj);
+}
