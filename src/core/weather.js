@@ -5,13 +5,17 @@ export const getLocation = async function getLocationFromAPI(location) {
             console.error('The request was not found');
         } 
         const json = await dataLocation.json();
-        jsonDataProcessing(json);
+        const processedData = jsonDataProcessing(json);
+        return processedData;
     } catch(error) {
         console.log(error);
     }
 };
 
-const jsonDataProcessing = async function jsonDataProcessingToObj(locationJson) {
-    console.log(locationJson, locationJson.address);
-    // console.log(locationObj);
-}
+const jsonDataProcessing = function jsonDataProcessingToObj(locationJson) {
+    const { address } = locationJson;
+    const { conditions, icon, feelslike, temp, uvindex, windspeed } = locationJson.currentConditions;
+    const firstWeekDays = locationJson.days.filter((day, index) => index < 7);
+
+    return { address, conditions, icon, feelslike, temp, uvindex, windspeed, firstWeekDays };
+};
