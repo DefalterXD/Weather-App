@@ -13,9 +13,9 @@ export const getLocation = async function getLocationFromAPI(location) {
 };
 
 const jsonDataProcessing = function jsonDataProcessingToObj(locationJson) {
-    const { address } = locationJson;
+    const { resolvedAddress } = locationJson;
     const { conditions, icon, feelslike, temp, uvindex, windspeed } = locationJson.currentConditions;
     const firstWeekDays = locationJson.days.filter((day, index) => index < 7);
 
-    return { address, conditions, icon, feelslike, temp, uvindex, windspeed, firstWeekDays };
+    return { resolvedAddress, conditions, icon, feelslike, temp, uvindex, windspeed, firstWeekDays };
 };
