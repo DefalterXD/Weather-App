@@ -6,9 +6,46 @@
     <title>Weather App</title>
 </head>
 <body>
-    <form action="#">
-        <input type="search" name="city" id="city" placeholder="Enter your city">
-        <button class="searchCity" type="submit">Find City</button>
-    </form>
+    <main class="weather__container">
+        <form action="#">
+            <input type="search" name="city" id="city" placeholder="Enter your city">
+            <button class="searchCity" type="submit">Find City</button>
+        </form>
+        <section class="meta__container">
+            <h1 class="address__title"></h1>
+            <h2 class="current__desc"></h2>
+            <h1 class="current_temp"></h1>
+        </section>
+        <section class="condition__container">
+            <h1 class="condition__header">Current conditions</h1>
+            <div class="condition__card">
+                <h1 class="condition__title">Real Feel</h1>
+                <p class="condition__desc"></p>
+            </div>
+            <div class="condition__card">
+                <h1 class="condition__title">Wind</h1>
+                <p class="condition__desc"></p>
+            </div>
+            <div class="condition__card">
+                <h1 class="condition__title">UV Index</h1>
+                <p class="condition__desc"></p>
+            </div>
+            <div class="condition__card">
+                <h1 class="condition__title">Dew Point</h1>
+                <p class="condition__desc"></p>
+            </div>
+        </section>
+        <section class="hour__container">
+            <h1 class="hour__header">Today's Forecast</h1>
+            <div class="hour__card">
+                <p class="time__title"></p>
+                <!-- img -->
+                 <div class="temp__title"></div>
+            </div>
+        </section>
+        <section class="week__container">
+             <h1 class="week__header">7-day Forecast</h1>
+        </section>
+    </main>
 </body>
 </html>
