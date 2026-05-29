@@ -29,8 +29,26 @@ body {
 
 form {
     grid-area: search;
+    display: flex;
+    gap: 12px;
+    border-radius: var(--border-default);
     background-color: var(--secondary-color);
+    padding: 1.2em 1.5em;
+    font-size: 1.2rem;
 
+    & input {
+        flex: 1;
+        background-color: transparent;
+        border: none;
+        color: white;
+    }
+
+    & button {
+        background-color: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
 }
 
 .meta__container {
