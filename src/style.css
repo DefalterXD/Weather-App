@@ -54,6 +54,8 @@ form {
 .meta__container {
     grid-area: meta;
     background-color: var(--primary-color);
+    padding: var(--padding-default);
+    border-radius: var(--border-default);
 }
 
 .condition__container {
