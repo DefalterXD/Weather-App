@@ -85,9 +85,25 @@ form {
     padding: var(--padding-default);
     border-radius: var(--border-default);
 
+    & .hour__header {
+        font-size: 1.1rem;
+        color: var(--font-accent);
+    }
 
 
+    & .hour__card.container {
+        display: flex;
+        gap: 50px;
+        overflow-x: scroll;
+        max-width: 40dvw;
+    }
 
+    & .hour__card {
+        display: grid;
+        justify-items: center;
+        min-width: 100px;
+        min-height: 100px;
+    }
 }
 
 .week__container {
