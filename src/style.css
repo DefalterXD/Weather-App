@@ -108,6 +108,12 @@ form {
 
 .week__container {
     grid-area: week;
+    display: grid;
+    grid-template-rows: 20px repeat(7, 1fr);
     background-color: var(--primary-color);
+    padding: var(--padding-default);
+    border-radius: var(--border-default);
+    font-size: 1.2rem;
+
 
 }
