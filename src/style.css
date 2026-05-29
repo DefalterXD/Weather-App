@@ -7,3 +7,10 @@
     --font-accent: #BDBDBD;
 }
 
+body {
+    min-height: 100dvh;
+    font-family: 'Noto Sans Mandaic', sans-serif;
+    display: grid;
+    place-content: center;
+}
+
