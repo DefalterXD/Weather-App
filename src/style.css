@@ -136,5 +136,27 @@ form {
         }
     }
 
+    & .week__temp {
+        display: flex;
+        align-items: center;
+
+        & .week__desc {
+            font-size: 1.5rem;
+        }
+
+        & .delimeter {
+            font-size: 1.5rem;
+            color: var(--font-accent);
+        }
+
+        & .temp__max {
+            font-size: 1.5rem;
+        }
+
+        & .temp__min {
+            font-size: 1.3rem;
+            color: var(--font-accent);
+        }
+    }
 
 }
