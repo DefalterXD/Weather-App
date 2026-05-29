@@ -127,5 +127,14 @@ form {
         gap: 24px;
     }
 
+    & .week__weather {
+        display: flex;
+        align-items: center;
+
+        & .week__desc {
+            font-size: 1.5rem;
+        }
+    }
+
 
 }
