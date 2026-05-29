@@ -80,7 +80,10 @@ form {
 
 .hour__container {
     grid-area: hour;
+    display: grid;
     background-color: var(--primary-color);
+    padding: var(--padding-default);
+    border-radius: var(--border-default);
 
 
 
