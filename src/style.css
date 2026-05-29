@@ -115,5 +115,10 @@ form {
     border-radius: var(--border-default);
     font-size: 1.2rem;
 
+    & .week__header {
+        font-size: 1.1rem;
+        color: var(--font-accent);
+    }
+
 
 }
