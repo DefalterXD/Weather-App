@@ -67,7 +67,15 @@ form {
     border-radius: var(--border-default);
     gap: 18px;
 
+    & .condition__header {
+        font-size: 1.1rem;
+        color: var(--font-accent);
+        grid-column: 1 / 3;
+    }
 
+    & .condition__desc {
+        font-size: 2rem;
+    }
 }
 
 .hour__container {
