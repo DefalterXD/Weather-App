@@ -14,3 +14,47 @@ body {
     place-content: center;
 }
 
+.weather__container {
+    min-width: 50dvw;
+    display: grid;
+    grid-template-areas:
+        "search search search search search"
+        "meta meta meta week week"
+        "condition condition condition week week"
+        "condition condition condition week week"
+        "hour hour hour week week";
+    gap: 16px;
+    color: white;
+}
+
+form {
+    grid-area: search;
+    background-color: var(--secondary-color);
+
+}
+
+.meta__container {
+    grid-area: meta;
+    background-color: var(--primary-color);
+}
+
+.condition__container {
+    grid-area: condition;
+
+
+}
+
+.hour__container {
+    grid-area: hour;
+    background-color: var(--primary-color);
+
+
+
+
+}
+
+.week__container {
+    grid-area: week;
+    background-color: var(--primary-color);
+
+}
