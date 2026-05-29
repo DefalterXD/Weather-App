@@ -60,6 +60,12 @@ form {
 
 .condition__container {
     grid-area: condition;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--primary-color);
+    padding: var(--padding-default);
+    border-radius: var(--border-default);
+    gap: 18px;
 
 
 }
