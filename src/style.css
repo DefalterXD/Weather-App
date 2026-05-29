@@ -120,5 +120,12 @@ form {
         color: var(--font-accent);
     }
 
+    & .week__card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
 
 }
