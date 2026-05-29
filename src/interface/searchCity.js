@@ -1,4 +1,5 @@
 import { getLocation } from "../core/weather.js";
+import { displayData } from "./displayData.js";
 
 const searchField = document.querySelector('#city');
 const searchButton = document.querySelector('.searchCity');
@@ -12,7 +13,7 @@ const checkInput = async function checkInputForValidValue(e) {
 
     const city = searchField.value;
     const cityResult = await getLocation(city);
-    console.log(cityResult);
+    displayData(cityResult);
 }
 
 searchButton.addEventListener('click', checkInput);
