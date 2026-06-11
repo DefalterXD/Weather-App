@@ -166,15 +166,22 @@ form {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 24px;
+        gap: 12px;
     }
 
     & .week__weather {
-        display: flex;
+        display: grid;
+        grid-template-columns: 25% 1fr;
+        min-width: 80%;
         align-items: center;
 
+        & .img__container {
+            display: flex;
+            gap: 12px;
+        }
+
         & .week__desc {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
     }
 
