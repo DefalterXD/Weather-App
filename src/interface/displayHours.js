@@ -1,0 +1,43 @@
+import { format } from "date-fns";
+
+export const displayHoursData = function displayHoursDataOnThePage(hoursOfTheCurrentDay) {
+    const hourSection = document.createElement('section');
+    hourSection.classList.add('hour__container');
+
+    const hourHeader = document.createElement('h1');
+    hourHeader.classList.add('hour__header');
+    hourHeader.textContent = `Today's Forecast`;
+
+    const hoursCardContainer = document.createElement('div');
+    hoursCardContainer.classList.add('hour__card', 'container');
+
+    for (const hour of hoursOfTheCurrentDay) {
+        const hourCard = document.createElement('div');
+        hourCard.classList.add('hour__card');
+
+        const timeTitle = document.createElement('p');
+        timeTitle.classList.add('time__title');
+
+        // FORMAT the current day and append hours to correctly format it into 'am' and 'pm'
+        const now = format(new Date(), 'MMMM d, y');
+        const custTime = hour.datetime;
+        const custDt = new Date(`${now} ${custTime}`);
+
+        timeTitle.textContent = format(custDt, 'p');
+
+        const hourWeatherIcon = document.createElement('img');
+        hourWeatherIcon.src = '#';
+        hourWeatherIcon.alt = 'icon';
+
+        const tempTitle = document.createElement('p');
+        tempTitle.classList.add('temp__title');
+        tempTitle.textContent = hour.temp;
+
+        hourCard.append(timeTitle, hourWeatherIcon, tempTitle);
+        hoursCardContainer.append(hourCard);
+    }
+
+    hourSection.append(hourHeader, hoursCardContainer);
+
+    return hourSection;
+};
