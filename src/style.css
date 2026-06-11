@@ -123,6 +123,7 @@ form {
     background-color: var(--primary-color);
     padding: var(--padding-default);
     border-radius: var(--border-default);
+    gap: 18px;
 
     & .hour__header {
         font-size: 1.1rem;
@@ -135,6 +136,8 @@ form {
         gap: 50px;
         overflow-x: scroll;
         max-width: 40dvw;
+        scrollbar-color: var(--accent-color) var(--secondary-color);
+        justify-self: center;
     }
 
     & .hour__card {
