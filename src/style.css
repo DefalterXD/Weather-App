@@ -15,7 +15,7 @@ body {
 }
 
 .weather__container {
-    min-width: 50dvw;
+    min-width: 80dvw;
     display: grid;
     grid-template-areas:
         "search search search search search"
