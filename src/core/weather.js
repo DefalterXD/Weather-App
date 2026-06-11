@@ -1,3 +1,8 @@
+export const tempMode = {
+    isCelsius: false,
+    cityReference: ''
+};
+
 export const getLocation = async function getLocationFromAPI(location) {
     try {
         const dataLocation = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=W3KQHZNRSNUWH75XWU46P53YY`);
