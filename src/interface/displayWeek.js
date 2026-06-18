@@ -26,8 +26,13 @@ export const initDisplayWeekData = function initDisplayWeekDataOnThePage(daysOfT
         weekWeatherContainer.classList.add('week__weather');
 
         const weekWeatherIcon = document.createElement('img');
-        weekWeatherIcon.src = '#';
-        weekWeatherIcon.alt = 'icon';
+        weekWeatherIcon.classList.add('week__img');
+        import(`../iconModules/${day.icon}.js`).then((iconResult) => {
+            weekWeatherIcon.src = iconResult.iconImgSrc;
+            weekWeatherIcon.alt = iconResult.iconImgAlt;
+          }).catch((error) => {
+            console.error(error);
+          });
 
         const weekDesc = document.createElement('p');
         weekDesc.classList.add('week__desc');
