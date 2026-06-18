@@ -25,3 +25,21 @@ export const populateLocalStorage = function populateLocalStorageFromWeather() {
   localStorage.setItem('cityName', JSON.stringify(tempMode.cityName));
 };
 
+export const renderPageFromLocalStorage = async function renderPageFromLocalStorageForWeatherDisplay() {
+  const recentCity = JSON.parse(localStorage.getItem('cityName'));
+  tempMode.isCelsius = JSON.parse(localStorage.getItem('isCelsius'));
+  
+  const cityResult = await getLocation(recentCity);
+  tempMode.cityCelsius = JSON.parse(JSON.stringify(cityResult));
+  assignPropertiesFahrenheitToCelsius(tempMode.cityCelsius);
+  tempMode.cityFahrenheit = JSON.parse(JSON.stringify(cityResult));
+
+  if (tempMode.isCelsius) {
+    displayData(tempMode.cityCelsius);
+    const tempButton = document.querySelector('.button__temp');
+    tempButton.setAttribute('temp-mode', 'C°');
+  } else {
+    displayData(tempMode.cityFahrenheit);
+  }
+
+}
