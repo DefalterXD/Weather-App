@@ -1,3 +1,5 @@
+import { displayData } from "../interface/displayData.js";
+import { assignPropertiesFahrenheitToCelsius, getLocation, tempMode } from "./weather.js";
 
 export const storageAvailable = function storageAvailableInBrowser(type) {
   let storage;
@@ -16,5 +18,10 @@ export const storageAvailable = function storageAvailableInBrowser(type) {
       storage.length !== 0
     );
   }
+};
+
+export const populateLocalStorage = function populateLocalStorageFromWeather() {
+  localStorage.setItem('isCelsius', JSON.stringify(tempMode.isCelsius));
+  localStorage.setItem('cityName', JSON.stringify(tempMode.cityName));
 };
 
