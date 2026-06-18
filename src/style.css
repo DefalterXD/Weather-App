@@ -206,9 +206,8 @@ form {
     }
 
     & .week__card {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 20dvw 2fr;
         gap: 12px;
     }
 
