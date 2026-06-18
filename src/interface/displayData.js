@@ -37,6 +37,5 @@ export const displayData = function displayDataAboutCityInPage(city) {
         mainWeatherContainer.appendChild(weekSection);
     }
 
-    mainWeatherContainer.append(metaDataElement, conditionDataElement, hourDataElement, weekDataElement);
-    console.log(city);
+    hideLoading();
 };
