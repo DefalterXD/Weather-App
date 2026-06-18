@@ -17,11 +17,14 @@ export const initDisplayMetaData = function initDisplayMetaDataOnThePage(resolve
     currentTemp.classList.add('current__temp');
     currentTemp.textContent = (!tempMode.isCelsius) ? `${cityTemp} F°` : `${cityTemp} C°`;
     
+    let weatherImg = document.createElement('img');
+    weatherImg.classList.add('meta__img');
+    
 
     const tempModeButton = document.createElement('button');
     tempModeButton.classList.add('button__temp');
-
-    metaSection.append(addressTitle, currentDesc, currentTemp, tempModeButton);
+    
+    metaSection.append(addressTitle, currentDesc, currentTemp, weatherImg, tempModeButton);
 
     return metaSection;
 };
