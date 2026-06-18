@@ -180,6 +180,14 @@ form {
         justify-items: center;
         min-width: 100px;
         min-height: 100px;
+        gap: 12px;
+        padding-bottom: 12px;
+        font-size: 1.2rem;
+    }
+
+    & img {
+        width: 80px;
+        height: 80px;
     }
 }
 
