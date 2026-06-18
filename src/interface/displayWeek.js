@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-export const displayWeekData = function displayWeekDataOnThePage(daysOfTheWeek) {
+export const initDisplayWeekData = function initDisplayWeekDataOnThePage(daysOfTheWeek) {
     const weekSection = document.createElement('section');
     weekSection.classList.add('week__container');
 
