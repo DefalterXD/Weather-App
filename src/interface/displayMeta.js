@@ -21,6 +21,12 @@ export const initDisplayMetaData = function initDisplayMetaDataOnThePage(resolve
     let weatherImg = document.createElement('img');
     weatherImg.classList.add('meta__img');
     
+    import(`../iconModules/${icon}.js`).then(iconResult => {
+        weatherImg.src = iconResult.iconImgSrc;
+        weatherImg.alt = iconResult.iconImgAlt;
+    }).catch(error => {
+        console.error(error);
+    });
 
     const tempModeButton = document.createElement('button');
     tempModeButton.classList.add('button__temp');
