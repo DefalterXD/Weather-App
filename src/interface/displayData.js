@@ -1,37 +1,41 @@
-import { tempMode } from "../core/weather.js";
-import { displayConditionData } from "./displayCondition.js";
-import { displayHoursData } from "./displayHours.js";
-import { displayMetaData } from "./displayMeta.js";
-import { displayWeekData } from "./displayWeek.js";
+import { displayExistingConditionData, initDisplayConditionData } from "./displayCondition.js";
+import { displayExistingHoursData, initDisplayHoursData } from "./displayHours.js";
+import { displayExistingMetaData, initDisplayMetaData } from "./displayMeta.js";
+import { displayExistingWeekData, initDisplayWeekData } from "./displayWeek.js";
+import { hideLoading } from "./loadingComponent.js";
 
 const mainWeatherContainer = document.querySelector('.weather__container');
 
-const deleteDuplicateSections = function deleteDuplicateSectionsAfterCityQuery() {
-    const metaSection = document.querySelector('.meta__container');
-    const conditionSection = document.querySelector('.condition__container');
-    const hourSection = document.querySelector('.hour__container');
-    const weekSection = document.querySelector('.week__container');
+export const displayData = function displayDataAboutCityInPage(city) {
+    let metaSection = document.querySelector('.meta__container');
+    let conditionSection = document.querySelector('.condition__container');
+    let hourSection = document.querySelector('.hour__container');
+    let weekSection = document.querySelector('.week__container');
 
     if (metaSection) {
-        metaSection.remove();
-    } 
+        displayExistingMetaData(city.resolvedAddress, city.conditions, city.temp, city.icon);
+    } else {
+        metaSection = initDisplayMetaData(city.resolvedAddress, city.conditions, city.temp, city.icon);
+        mainWeatherContainer.appendChild(metaSection);
+    }
     if (conditionSection) {
-        conditionSection.remove();
+        displayExistingConditionData(city.feelslike, city.windspeed, city.uvindex, city.firstWeekDays[0].dew);
+    } else {
+        conditionSection = initDisplayConditionData(city.feelslike, city.windspeed, city.uvindex, city.firstWeekDays[0].dew);
+        mainWeatherContainer.appendChild(conditionSection);
     }
     if (hourSection) {
-        hourSection.remove();
-    } 
-    if (weekSection) {
-        weekSection.remove();
+        displayExistingHoursData(city.firstWeekDays[0].hours);
+    } else {
+        hourSection = initDisplayHoursData(city.firstWeekDays[0].hours);
+        mainWeatherContainer.appendChild(hourSection);
     }
-}
-
-export const displayData = function displayDataAboutCityInPage(city) {
-    deleteDuplicateSections();
-    const metaDataElement = displayMetaData(city.resolvedAddress, city.conditions, city.temp);
-    const conditionDataElement = displayConditionData(city.feelslike, city.windspeed, city.uvindex, city.firstWeekDays[0].dew);
-    const hourDataElement = displayHoursData(city.firstWeekDays[0].hours);
-    const weekDataElement = displayWeekData(city.firstWeekDays);
+    if (weekSection) {
+        displayExistingWeekData(city.firstWeekDays);
+    } else {
+        weekSection = initDisplayWeekData(city.firstWeekDays);
+        mainWeatherContainer.appendChild(weekSection);
+    }
 
     mainWeatherContainer.append(metaDataElement, conditionDataElement, hourDataElement, weekDataElement);
     console.log(city);
