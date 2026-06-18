@@ -5,9 +5,8 @@ export const initDisplayMetaData = function initDisplayMetaDataOnThePage(resolve
     const addressTitle = document.createElement('h1');
     addressTitle.classList.add('address__title');
     // SPLIT the address to get only the city name
-    addressTitle.textContent = resolvedAddress.split(',')[0].toString();
-
-
+    addressTitle.textContent = resolvedAddress.split(',')[0].toString().toLowerCase();
+    
     const currentDesc = document.createElement('h2');
     currentDesc.classList.add('current__desc');
     currentDesc.textContent = tempDescription;
