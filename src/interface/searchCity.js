@@ -1,3 +1,4 @@
+import { populateLocalStorage } from "../core/localStorage.js";
 import { assignPropertiesFahrenheitToCelsius, getLocation, tempMode } from "../core/weather.js";
 import { displayData } from "./displayData.js";
 import { hideLoading, showLoading } from "./loadingComponent.js";
@@ -27,11 +28,13 @@ const checkInput = async function checkInputForValidValue(e) {
             assignPropertiesFahrenheitToCelsius(tempMode.cityCelsius);
             tempMode.cityFahrenheit = JSON.parse(JSON.stringify(cityResult));
             displayData(cityResult);
+            populateLocalStorage();
         } else {
             tempMode.cityCelsius = JSON.parse(JSON.stringify(cityResult));
             assignPropertiesFahrenheitToCelsius(tempMode.cityCelsius);
             tempMode.cityFahrenheit = JSON.parse(JSON.stringify(cityResult));
             displayData(tempMode.cityCelsius);
+            populateLocalStorage();
         }
     } catch (error) {
         hideLoading();
