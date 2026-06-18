@@ -1,4 +1,4 @@
-export const displayMetaData = function displayMetaDataOnThePage(resolvedAddress, tempDescription, cityTemp) {
+export const initDisplayMetaData = function initDisplayMetaDataOnThePage(resolvedAddress, tempDescription, cityTemp, icon) {
     const metaSection = document.createElement('section');
     metaSection.classList.add('meta__container');
 
