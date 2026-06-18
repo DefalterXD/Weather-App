@@ -3,7 +3,8 @@ import { hideLoading } from "../interface/loadingComponent.js";
 export const tempMode = {
     isCelsius: false,
     cityCelsius: '',
-    cityFahrenheit: ''
+    cityFahrenheit: '',
+    cityName: ''
 };
 
 export const getLocation = async function getLocationFromAPI(location) {
