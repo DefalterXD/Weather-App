@@ -1,4 +1,4 @@
-import { getLocation, tempMode } from "../core/weather.js";
+import { assignPropertiesFahrenheitToCelsius, getLocation, tempMode } from "../core/weather.js";
 import { displayData } from "./displayData.js";
 
 const searchField = document.querySelector('#city');
@@ -13,12 +13,23 @@ const checkInput = async function checkInputForValidValue(e) {
             return;
         }
         const city = searchField.value;
+
+        // IF value from search isn't empty then apply
+        if (city !== '') tempMode.cityName = city;
+        
         const cityResult = await getLocation(city);
         
-        // IF the result exist then proceed 
-        if (cityResult) {
-            tempMode.cityReference = cityResult;
+        // IF the result exist AND the mode is not celsius then proceed 
+        if (cityResult && !tempMode.isCelsius) {
+            tempMode.cityCelsius = JSON.parse(JSON.stringify(cityResult));
+            assignPropertiesFahrenheitToCelsius(tempMode.cityCelsius);
+            tempMode.cityFahrenheit = JSON.parse(JSON.stringify(cityResult));
             displayData(cityResult);
+        } else {
+            tempMode.cityCelsius = JSON.parse(JSON.stringify(cityResult));
+            assignPropertiesFahrenheitToCelsius(tempMode.cityCelsius);
+            tempMode.cityFahrenheit = JSON.parse(JSON.stringify(cityResult));
+            displayData(tempMode.cityCelsius);
         }
     } catch (error) {
         console.log(error);
