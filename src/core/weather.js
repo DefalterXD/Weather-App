@@ -1,6 +1,7 @@
 export const tempMode = {
     isCelsius: false,
-    cityReference: ''
+    cityCelsius: '',
+    cityFahrenheit: ''
 };
 
 export const getLocation = async function getLocationFromAPI(location) {
