@@ -1,4 +1,4 @@
-export const displayConditionData = function displayConditionDataOnThePage(feelsLike, windSpeed, uvIndex, dew) {
+export const initDisplayConditionData = function initDisplayConditionDataOnThePage(feelsLike, windSpeed, uvIndex, dew) {
     const conditionSection = document.createElement('section');
     conditionSection.classList.add('condition__container');
 
