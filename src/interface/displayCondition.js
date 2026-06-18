@@ -63,4 +63,18 @@ export const initDisplayConditionData = function initDisplayConditionDataOnThePa
     conditionSection.append(conditionHeader, realFeelCard, windSpeedCard, uvIndexCard, dewCard);
 
     return conditionSection;
-};
+  };
+
+export const displayExistingConditionData = function displayExistingConditionDataOnThePage(feelsLike, windSpeed, uvIndex, dew) {
+    const windSpeedDesc = document.querySelector('.condition__desc.wind');
+    windSpeedDesc.textContent = `${windSpeed} km/h`;
+
+    const uvIndexDesc = document.querySelector('.condition__desc.uv');
+    uvIndexDesc.textContent = uvIndex;
+
+    const realFeelDesc = document.querySelector('.condition__desc.real__feel');
+    realFeelDesc.textContent = (!tempMode.isCelsius) ? `${feelsLike} F°` : `${feelsLike} C°`;
+
+    const dewDesc = document.querySelector('.condition__desc.dew');
+    dewDesc.textContent = (!tempMode.isCelsius) ? `${dew} F°` : `${dew} C°`;
+  };
