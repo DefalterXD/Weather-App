@@ -35,3 +35,9 @@ const jsonDataProcessing = function jsonDataProcessingToObj(locationJson) {
     }
     return { resolvedAddress, conditions, icon, feelslike, temp, uvindex, windspeed, firstWeekDays };
 };
+
+const convertFahrenheitToCelsius = function convertFahrenheitToCelsiusFormula(value) {
+    const celsiusResult = Math.round((value - 32) * 5/9);
+
+    return celsiusResult;
+};
