@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-export const displayHoursData = function displayHoursDataOnThePage(hoursOfTheCurrentDay) {
+export const initDisplayHoursData = function initDisplayHoursDataOnThePage(hoursOfTheCurrentDay) {
     const hourSection = document.createElement('section');
     hourSection.classList.add('hour__container');
 
