@@ -1,4 +1,5 @@
 import { tempMode } from "../core/weather.js";
+import { tempModeButtonSwitch } from "./tempMode.js";
 
 export const initDisplayMetaData = function initDisplayMetaDataOnThePage(resolvedAddress, tempDescription, cityTemp, icon) {
     const metaSection = document.createElement('section');
@@ -25,6 +26,7 @@ export const initDisplayMetaData = function initDisplayMetaDataOnThePage(resolve
     tempModeButton.classList.add('button__temp');
     tempModeButton.setAttribute('temp-mode', 'F°');
     
+    tempModeButtonSwitch(tempModeButton);
     
     metaSection.append(addressTitle, currentDesc, currentTemp, weatherImg, tempModeButton);
 
