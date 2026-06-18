@@ -124,7 +124,7 @@ form {
     }
 
     & .button__temp::after {
-        content: 'F°';
+        content: attr(temp-mode);
         position: absolute;
         top: 15%;
         right: 15%;
