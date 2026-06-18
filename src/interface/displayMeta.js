@@ -1,3 +1,5 @@
+import { tempMode } from "../core/weather.js";
+
 export const initDisplayMetaData = function initDisplayMetaDataOnThePage(resolvedAddress, tempDescription, cityTemp, icon) {
     const metaSection = document.createElement('section');
     metaSection.classList.add('meta__container');
@@ -13,7 +15,8 @@ export const initDisplayMetaData = function initDisplayMetaDataOnThePage(resolve
 
     const currentTemp = document.createElement('h1');
     currentTemp.classList.add('current__temp');
-    currentTemp.textContent = cityTemp;
+    currentTemp.textContent = (!tempMode.isCelsius) ? `${cityTemp} F°` : `${cityTemp} C°`;
+    
 
     const tempModeButton = document.createElement('button');
     tempModeButton.classList.add('button__temp');
