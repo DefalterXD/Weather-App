@@ -65,3 +65,40 @@ export const initDisplayWeekData = function initDisplayWeekDataOnThePage(daysOfT
 
     return weekSection;
 };
+
+export const displayExistingWeekData =
+  function displayExistingWeekDataOnThePage(daysOfTheWeek) {
+    const weekTempMax = document.querySelectorAll('.temp__max');
+    const weekTempMin = document.querySelectorAll('.temp__min');
+    const weekDesc = document.querySelectorAll('.week__desc');
+    const weekIconImgs = document.querySelectorAll('.week__img');
+
+    let maxTempIdx = 0;
+    for (const maxTempCard of weekTempMax) {
+      maxTempCard.textContent = (!tempMode.isCelsius) ? `${daysOfTheWeek[maxTempIdx].tempmax} F°` : `${daysOfTheWeek[maxTempIdx].tempmax} C°`;
+      maxTempIdx++;
+    }
+
+    let weekImgIdx = 0;
+    for (const weekImg of weekIconImgs) {
+      import(`../iconModules/${daysOfTheWeek[weekImgIdx].icon}.js`).then((iconResult) => {
+          weekImg.src = iconResult.iconImgSrc;
+          weekImg.alt = iconResult.iconImgAlt;
+        }).catch((error) => {
+          console.error(error);
+        });
+      weekImgIdx++;
+    }
+
+    let weekDescIdx = 0;
+    for (const weekDescCard of weekDesc) {
+      weekDescCard.textContent = daysOfTheWeek[weekDescIdx].conditions;
+      weekDescIdx++;
+    }
+
+    let minTempIdx = 0;
+    for (const minTempCard of weekTempMin) {
+      minTempCard.textContent = (!tempMode.isCelsius) ? `${daysOfTheWeek[minTempIdx].tempmin} F°` : `${daysOfTheWeek[minTempIdx].tempmin} C°`;
+      minTempIdx++;
+    }
+  };
