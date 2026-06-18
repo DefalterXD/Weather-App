@@ -38,3 +38,26 @@ export const initDisplayMetaData = function initDisplayMetaDataOnThePage(resolve
 
     return metaSection;
 };
+
+export const displayExistingMetaData = function displayExistingMetaDataOnThePage(resolvedAddress, tempDescription, cityTemp, icon) {
+
+    const addressTitle = document.querySelector('.address__title');
+    // SPLIT the address to get only the city name
+    addressTitle.textContent = resolvedAddress.split(',')[0].toString().toLowerCase();
+
+    const currentDesc = document.querySelector('.current__desc');
+    currentDesc.textContent = tempDescription;
+
+    const weatherImg = document.querySelector('.meta__img');
+
+    import(`../iconModules/${icon}.js`).then(iconResult => {
+        weatherImg.src = iconResult.iconImgSrc;
+        weatherImg.alt = iconResult.iconImgAlt;
+    }).catch(error => {
+        console.error(error);
+    });
+
+    const currentTemp = document.querySelector('.current__temp');
+    if (currentTemp) currentTemp.textContent = (!tempMode.isCelsius) ? `${cityTemp} F°` : `${cityTemp} C°`;
+
+};
