@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebpack_template=self.webpackChunkwebpack_template||[]).push([[440],{1231(e,c,p){p.d(c,{iconImgAlt:()=>t,iconImgSrc:()=>s});const s=p.p+"5cd9d2df6b8a615bb430.svg",t="snow"}}]);
