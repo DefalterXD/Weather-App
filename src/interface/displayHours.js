@@ -78,5 +78,6 @@ export const displayExistingHoursData = function displayHoursDataOnThePage(
     tempHourCard.textContent = !tempMode.isCelsius
       ? `${hoursOfTheCurrentDay[tempDescIdx].temp} F°`
       : `${hoursOfTheCurrentDay[tempDescIdx].temp} C°`;
+      tempDescIdx++;
   }
 };
