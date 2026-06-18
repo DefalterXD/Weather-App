@@ -1,10 +1,12 @@
 import { assignPropertiesFahrenheitToCelsius, getLocation, tempMode } from "../core/weather.js";
 import { displayData } from "./displayData.js";
+import { hideLoading, showLoading } from "./loadingComponent.js";
 
 const searchField = document.querySelector('#city');
 const searchButton = document.querySelector('.searchCity');
 
 const checkInput = async function checkInputForValidValue(e) {
+    showLoading();
     
     try {
         e.preventDefault();
@@ -32,6 +34,7 @@ const checkInput = async function checkInputForValidValue(e) {
             displayData(tempMode.cityCelsius);
         }
     } catch (error) {
+        hideLoading();
         console.log(error);
     }
 };
