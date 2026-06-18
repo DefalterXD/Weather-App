@@ -36,6 +36,19 @@ const jsonDataProcessing = function jsonDataProcessingToObj(locationJson) {
     return { resolvedAddress, conditions, icon, feelslike, temp, uvindex, windspeed, firstWeekDays };
 };
 
+export const assignPropertiesFahrenheitToCelsius = function convertFahrenheitToCelsiusFromJSON(city) {
+    city.feelslike = convertFahrenheitToCelsius(city.feelslike);
+    city.temp = convertFahrenheitToCelsius(city.temp);
+    for (const day of city.firstWeekDays) {
+        day.dew = convertFahrenheitToCelsius(day.dew);
+        day.tempmax = convertFahrenheitToCelsius(day.tempmax);
+        day.tempmin = convertFahrenheitToCelsius(day.tempmin);
+        for (const hour of day.hours) {
+            hour.temp = convertFahrenheitToCelsius(hour.temp);
+        }
+    }
+};
+
 const convertFahrenheitToCelsius = function convertFahrenheitToCelsiusFormula(value) {
     const celsiusResult = Math.round((value - 32) * 5/9);
 
