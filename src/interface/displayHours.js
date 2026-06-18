@@ -27,8 +27,13 @@ export const initDisplayHoursData = function initDisplayHoursDataOnThePage(hours
         timeTitle.textContent = format(custDt, 'p');
 
         const hourWeatherIcon = document.createElement('img');
-        hourWeatherIcon.src = '#';
-        hourWeatherIcon.alt = 'icon';
+        hourWeatherIcon.classList.add('hour__img');
+        import(`../iconModules/${hour.icon}.js`).then(iconResult => {
+            hourWeatherIcon.src = iconResult.iconImgSrc;
+            hourWeatherIcon.alt = iconResult.iconImgAlt;
+        }).catch(error => {
+            console.error(error);
+        });
 
         const tempTitle = document.createElement('p');
         tempTitle.classList.add('temp__title');
