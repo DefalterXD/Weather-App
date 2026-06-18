@@ -47,3 +47,25 @@ export const initDisplayHoursData = function initDisplayHoursDataOnThePage(hours
 
     return hourSection;
 };
+
+export const displayExistingHoursData = function displayHoursDataOnThePage(hoursOfTheCurrentDay) {
+
+    const tempTitle = document.querySelectorAll('.temp__title');
+    const hourCardImgs = document.querySelectorAll('.hour__img');
+
+    let imgCounterIdx = 0;
+    for (const hourImg of hourCardImgs) {
+        import(`../iconModules/${hoursOfTheCurrentDay[imgCounterIdx].icon}.js`).then(iconResult => {
+            hourImg.src = iconResult.iconImgSrc;
+            hourImg.alt = iconResult.iconImgAlt;
+        }).catch(error => {
+            console.error(error);
+        });
+        imgCounterIdx++;
+    }
+
+    let tempDescIdx = 0;
+    for (const tempHourCard of tempTitle) {
+    tempHourCard.textContent = (!tempMode.isCelsius) ? `${hoursOfTheCurrentDay[tempDescIdx].temp} F°` : `${hoursOfTheCurrentDay[tempDescIdx].temp} C°`;
+    }
+};
