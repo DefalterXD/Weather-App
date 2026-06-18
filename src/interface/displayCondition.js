@@ -1,3 +1,5 @@
+import { tempMode } from '../core/weather.js';
+
 export const initDisplayConditionData = function initDisplayConditionDataOnThePage(feelsLike, windSpeed, uvIndex, dew) {
     const conditionSection = document.createElement('section');
     conditionSection.classList.add('condition__container');
@@ -14,8 +16,8 @@ export const initDisplayConditionData = function initDisplayConditionDataOnThePa
     realFeelTitle.textContent = 'Feel Temperature';
 
     const realFeelDesc = document.createElement('p');
-    realFeelDesc.classList.add('condition__desc');
-    realFeelDesc.textContent = feelsLike;
+    realFeelDesc.classList.add('condition__desc', 'real__feel');
+    realFeelDesc.textContent = !tempMode.isCelsius ? `${feelsLike} F°` : `${feelsLike} C°`;
 
     realFeelCard.append(realFeelTitle, realFeelDesc);
 
@@ -27,7 +29,7 @@ export const initDisplayConditionData = function initDisplayConditionDataOnThePa
     windSpeedTitle.textContent = 'Wind Speed';
 
     const windSpeedDesc = document.createElement('p');
-    windSpeedDesc.classList.add('condition__desc');
+    windSpeedDesc.classList.add('condition__desc', 'wind');
     windSpeedDesc.textContent = `${windSpeed} km/h`;
 
     windSpeedCard.append(windSpeedTitle, windSpeedDesc);
@@ -40,7 +42,7 @@ export const initDisplayConditionData = function initDisplayConditionDataOnThePa
     uvIndexTitle.textContent = 'UV Index';
 
     const uvIndexDesc = document.createElement('p');
-    uvIndexDesc.classList.add('condition__desc');
+    uvIndexDesc.classList.add('condition__desc', 'uv');
     uvIndexDesc.textContent = uvIndex;
 
     uvIndexCard.append(uvIndexTitle, uvIndexDesc);
