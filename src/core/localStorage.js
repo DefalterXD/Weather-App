@@ -26,7 +26,8 @@ export const storageAvailable = function storageAvailableInBrowser(type) {
 
 export const populateLocalStorage = function populateLocalStorageFromWeather() {
   localStorage.setItem("isCelsius", JSON.stringify(tempMode.isCelsius));
-  if (tempMode.cityName !== '') localStorage.setItem("cityName", JSON.stringify(tempMode.cityName));
+  if (tempMode.cityName !== "")
+    localStorage.setItem("cityName", JSON.stringify(tempMode.cityName));
 };
 
 export const renderPageFromLocalStorage =
