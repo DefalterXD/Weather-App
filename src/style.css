@@ -89,6 +89,7 @@ form {
 
     & .address__title {
         text-transform: capitalize;
+        text-wrap: nowrap;
     }
 
     & .current__desc {
