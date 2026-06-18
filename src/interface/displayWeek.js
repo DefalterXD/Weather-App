@@ -49,14 +49,13 @@ export const initDisplayWeekData = function initDisplayWeekDataOnThePage(daysOfT
 
         const weekTempMin = document.createElement('h2');
         weekTempMin.classList.add('temp__min');
-        weekTempMin.textContent = day.tempmin;
+        weekTempMin.textContent = (!tempMode.isCelsius) ? `${day.tempmin} F°` : `${day.tempmin} C°`;
 
         weekTempContainer.append(weekTempMax, weekDelimiter, weekTempMin);
 
         weekCard.append(weekWeatherContainer, weekTempContainer);
 
         weekSection.appendChild(weekCard);
-        
     }
 
     return weekSection;
