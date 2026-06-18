@@ -17,13 +17,11 @@ const checkInput = async function checkInputForValidValue(e) {
     e.preventDefault();
     if (!searchField.value) {
       console.log("No value was added");
+      hideLoading();
       return;
     }
     const city = searchField.value;
-
-    // IF value from search isn't empty then apply
-    if (city !== "") tempMode.cityName = city;
-
+    tempMode.cityName = city;
     const cityResult = await getLocation(city);
 
     // IF the result exist AND the mode is not celsius then proceed
