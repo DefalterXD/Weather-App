@@ -42,7 +42,7 @@ body {
 
 
 .weather__container {
-    min-width: 80dvw;
+    width: max(80dvw, 90dvw);
     display: grid;
     grid-template-areas:
         "search search search search search"
