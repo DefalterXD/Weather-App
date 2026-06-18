@@ -55,12 +55,12 @@ export const initDisplayConditionData = function initDisplayConditionDataOnThePa
     dewTitle.textContent = 'Dew';
 
     const dewDesc = document.createElement('p');
-    dewDesc.classList.add('condition__desc');
-    dewDesc.textContent = dew;
+    dewDesc.classList.add('condition__desc', 'dew');
+    dewDesc.textContent = (!tempMode.isCelsius) ? `${dew} F°` : `${dew} C°`;
 
     dewCard.append(dewTitle, dewDesc);
 
     conditionSection.append(conditionHeader, realFeelCard, windSpeedCard, uvIndexCard, dewCard);
-    
+
     return conditionSection;
 };
