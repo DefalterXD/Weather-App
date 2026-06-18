@@ -23,6 +23,8 @@ export const initDisplayMetaData = function initDisplayMetaDataOnThePage(resolve
 
     const tempModeButton = document.createElement('button');
     tempModeButton.classList.add('button__temp');
+    tempModeButton.setAttribute('temp-mode', 'F°');
+    
     
     metaSection.append(addressTitle, currentDesc, currentTemp, weatherImg, tempModeButton);
 
