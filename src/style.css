@@ -9,11 +9,37 @@
 }
 
 body {
+    position: relative;
     min-height: 100dvh;
     font-family: 'Noto Sans Mandaic', sans-serif;
     display: grid;
     place-content: center;
+    background-color: var(--body-color);
 }
+
+.loader__container {
+    min-width: 100dvw;
+    min-height: 100dvh;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: grid;
+    place-content: center;
+    z-index: 1;
+
+    & .loader {
+        border: 24px solid #f3f3f3;
+        border-top: 24px solid var(--accent-color);
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        animation: spin 2s linear infinite;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
 
 .weather__container {
     min-width: 80dvw;
