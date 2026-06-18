@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import { tempMode } from '../core/weather.js';
 
 export const initDisplayWeekData = function initDisplayWeekDataOnThePage(daysOfTheWeek) {
     const weekSection = document.createElement('section');
@@ -40,7 +41,7 @@ export const initDisplayWeekData = function initDisplayWeekDataOnThePage(daysOfT
 
         const weekTempMax = document.createElement('h1');
         weekTempMax.classList.add('temp__max');
-        weekTempMax.textContent = day.tempmax;
+        weekTempMax.textContent = (!tempMode.isCelsius) ? `${day.tempmax} F°` : `${day.tempmax} C°`;
 
         const weekDelimiter = document.createElement('span');
         weekDelimiter.classList.add('delimiter');
