@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import { tempMode } from "../core/weather.js";
 
 export const initDisplayHoursData = function initDisplayHoursDataOnThePage(hoursOfTheCurrentDay) {
     const hourSection = document.createElement('section');
@@ -31,7 +32,7 @@ export const initDisplayHoursData = function initDisplayHoursDataOnThePage(hours
 
         const tempTitle = document.createElement('p');
         tempTitle.classList.add('temp__title');
-        tempTitle.textContent = hour.temp;
+        tempTitle.textContent = (!tempMode.isCelsius) ? `${hour.temp} F°` : `${hour.temp} C°`;
 
         hourCard.append(timeTitle, hourWeatherIcon, tempTitle);
         hoursCardContainer.append(hourCard);
